@@ -8,6 +8,7 @@ warning off
 base = pwd;
 base = [convertCharsToStrings(erase(pwd,'\Analysis\Analysis template')) + '\Measurement files\'];
 exp_date = datestr(today('datetime'));
+file_name = "Demo_CCXXX_Thickness.xlsx";
 
 % Specify cutoff frequency
 cutoffFreq = 1;
@@ -16,7 +17,7 @@ cutoffFreq = 1;
 % rmseCat = "Aging";
 
 % Read raw data from spreadsheet
-[data, sample_name, rmseCat] = readRheoData(base + "Demo_CCXXX_Thickness.xlsx",base);
+[data, sample_name, rmseCat] = readRheoData(base + file_name,base);
 
 % Calculate frequency-averaged viscoelasticity
 freqAveraged = freqAvgViscoelastic(data,sample_name,cutoffFreq);
