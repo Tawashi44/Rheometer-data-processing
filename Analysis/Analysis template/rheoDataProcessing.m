@@ -6,7 +6,7 @@ warning off
 
 % File directory
 base = pwd;
-base = [convertCharsToStrings(erase(pwd,'\Analysis\Analysis template')) + '\Measurement files'];
+base = [convertCharsToStrings(erase(pwd,'\Analysis\Analysis template')) + '\Measurement files\'];
 exp_date = datestr(today('datetime'));
 
 % Specify cutoff frequency
@@ -16,7 +16,7 @@ cutoffFreq = 1;
 % rmseCat = "Aging";
 
 % Read raw data from spreadsheet
-[data, sample_name,rmseCat] = readRheoData(base + "Demo_CCXXX_Thickness",base);
+[data, sample_name, rmseCat] = readRheoData(base + "Demo_CCXXX_Thickness.xlsx",base);
 
 % Calculate frequency-averaged viscoelasticity
 freqAveraged = freqAvgViscoelastic(data,sample_name,cutoffFreq);
@@ -28,10 +28,10 @@ defaultPlot(data,sample_name,freqAveraged,cutoffFreq)
 freqAveragedRmse = rmseSpread(freqAveraged,sample_name,rmseCat);
 
 % Saving all figures as .png and .fig
-%saveAllFigures
+saveAllFigures
 
 % Saving frequency-averaged viscoelastic data as .xlsx
-freqAveraged_FileName = exp_date + rmseCat + ".xlsx";
+freqAveraged_FileName = exp_date + "_" + rmseCat + ".xlsx";
 writetable(freqAveraged,freqAveraged_FileName,'Sheet','Viscoelastic')
 writetable(freqAveragedRmse,freqAveraged_FileName,'Sheet','RMSE spread')
 
