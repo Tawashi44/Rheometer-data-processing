@@ -5,8 +5,9 @@ close all;
 warning off
 
 % File directory
-base = "C:\Users\E3Kom\Google Drive (christopheryujuilai@alum.ccu.edu.tw)\Thesis\Experiments\Rheology tests\Rheometre analysis tool\01_Measurement files\";
-exp_date = "2020.11.05_";
+base = pwd;
+base = [convertCharsToStrings(erase(pwd,'\Analysis\Analysis template')) + '\Measurement files'];
+exp_date = datestr(today('datetime'));
 
 % Specify cutoff frequency
 cutoffFreq = 1;
@@ -15,7 +16,7 @@ cutoffFreq = 1;
 % rmseCat = "Aging";
 
 % Read raw data from spreadsheet
-[data, sample_name,rmseCat] = readRheoData(base + "CCXXX_Samples.xlsx",base);
+[data, sample_name,rmseCat] = readRheoData(base + "Demo_CCXXX_Thickness",base);
 
 % Calculate frequency-averaged viscoelasticity
 freqAveraged = freqAvgViscoelastic(data,sample_name,cutoffFreq);
