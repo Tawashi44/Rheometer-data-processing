@@ -29,9 +29,28 @@ This MATLAB package is for post-processing the raw data that comes from the Ther
 - This processor also does RMSE analysis of all the tests in the `.xlsx` file. For this, the file name must be named in the following convention `CCXXX_{Category}.xlsx`.The category for this analysis (e.g. Different axial forces or sample thickness) is read from the file name and included in the output file. `readRheoData.m` removes the `CCXXX_` from the file name, and takes the remaining `{Category}` as the category indicated in the output file.
 
 ### Add files to the `Measurement files` folder
-- Measurement files are to be placed in the `Measurement files` folder. A demo file 'Demo_CCXXX_Thickness' has been placed.
+- Measurement files are to be placed in the `Measurement files` folder. A demo file `Demo_CCXXX_Thickness.xlsx` has been placed.
 
-## Create and edit new analysis folder
-- Open the analysis file `rheoDataProcessing.m` in the `Analysis\Analysis template` folder.
-Copy and paste the analysis template folder to create a new analysis folder. The naming of the folder is up to the user.
-- Open the analysis file `rheoDataProcessing.m`
+### Create and edit new analysis folder
+- Copy and paste the analysis template folder to create a new analysis folder. The naming of the folder is up to the user.
+- Open the main analysis file `rheoDataProcessing.m` and edit the `file_name` variable to the file name to be processed.
+- Setup is complete and the code is ready to run
+
+## Outputs
+- Plots (Plots are saved by default (`.png`, `.fig`), can be deactivated by commenting out `saveAllFigures`)
+  - Dynamic shear modulus, loss tangent, and magnitude of the complex viscosity with respect to the frequency for each sample
+  - Consolidated shear storage modulus for all samples
+  - Consolidated shear loss modulus for all samples
+  - Consolidated loss tangent for all samples
+  - Consolidated magnitude of complex viscosity for all samples
+- Spreadsheet
+  - Mean of properties (taken up to specified cutoff frequency) for all samples
+  - RMSE of these properties
+    - G' [Pa]
+    - G'' [Pa]
+    - tan(delta_p) [-]
+    - |G*| [Pa]
+    - |eta*| [Pa-s]
+
+## Test drive
+- A demo measurement file has been included for a test run (`Demo_CCXXX_Thickness.xlsx`). The analysis file `rheoDataProcessing.m` is configured to read the demo file and can be run without any edits.
