@@ -37,6 +37,7 @@ This MATLAB package is for post-processing the raw data that comes from the Ther
 - Setup is complete and the code is ready to run
 
 ## Outputs
+All of the outputs mentioned below are saved in the `Analysis` folder
 - Plots (Plots are saved by default (`.png`, `.fig`), can be deactivated by commenting out `saveAllFigures`)
   - Dynamic shear modulus, loss tangent, and magnitude of the complex viscosity with respect to the frequency for each sample
   - Consolidated shear storage modulus for all samples
