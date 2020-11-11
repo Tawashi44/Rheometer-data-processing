@@ -1,13 +1,10 @@
-clc;
-clear all;
-close all;
-    
+clc; clear; close all;    
 warning off
 
 % File directory
 base = pwd;
-base = [convertCharsToStrings(erase(pwd,'\Analysis\Analysis template')) + '\Measurement files\'];
-exp_date = datestr(today('datetime'));
+base = [convertCharsToStrings(erase(pwd,'/Analysis/Analysis template')) + '/Measurement files/'];
+exp_date = datestr(datetime('today'),'yyyy_mm_dd');
 file_name = "Demo_CCXXX_Thickness.xlsx";
 
 % Specify cutoff frequency

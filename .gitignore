@@ -1,11 +1,9 @@
+#Ignore (don't sync with github)
+Measurement files/*
+Analysis/*
+*~
 
-Functions/defaultPlot.asv
-Analysis/Analysis template/figures/figures.fig
-Analysis/Analysis template/figures/figure_6.png
-Analysis/Analysis template/figures/figure_5.png
-Analysis/Analysis template/figures/figure_4.png
-Analysis/Analysis template/figures/figure_3.png
-Analysis/Analysis template/figures/figure_2.png
-Analysis/Analysis template/figures/figure_1.png
-Analysis/Analysis template/09-Nov-2020_Demo_Thickness.xlsx
-Analysis/Analysis template/~$09-Nov-2020_Demo_Thickness.xlsx
+#Allow (exceptions)
+!Measurement files/Demo_CCXXX_Thickness.xlsx
+!Analyses/Analysis template/rheoDataProcessing.m
+
