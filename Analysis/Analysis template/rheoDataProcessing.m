@@ -3,7 +3,7 @@ warning off
 
 % File directory
 base = pwd;
-base = [convertCharsToStrings(erase(pwd,'/Analysis/Analysis template')) + '/Measurement files/'];
+base = [convertCharsToStrings(erase(pwd,[ filesep 'Analysis' filesep 'Analysis template'])) + filesep + 'Measurement files' + filesep];
 exp_date = datestr(datetime('today'),'yyyy_mm_dd');
 file_name = "Demo_CCXXX_Thickness.xlsx";
 
