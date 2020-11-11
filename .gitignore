@@ -1,8 +1,9 @@
 #Ignore (don't sync with github)
 Measurement files/*
-Analyses/*
+Analysis/*
+*~
 
 #Allow (exceptions)
 !Measurement files/Demo_CCXXX_Thickness.xlsx
-!Analyses/Analysis template
+!Analyses/Analysis template/rheoDataProcessing.m
 

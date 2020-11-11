@@ -1,18 +1,18 @@
-function [data, sample_name, rmseCat] = readRheoData(filename,base)
+function [data, samplename, rmseCat] = readRheoData(filename,base)
 
-sheet_name=sheetnames(filename);
+[status, sheetnames] = xlsfinfo(filename);
 
-for k=1:numel(sheet_name)
-    data{k}=readtable(filename,"Sheet",sheet_name(k));
+for k=1:numel(sheetnames)
+    data{k}=readtable(filename,"Sheet",sheetnames{k});
 end
 
 rmseCat = erase(filename,".xlsx");
 rmseCat = erase(rmseCat,"CCXXX_");
 rmseCat = erase(rmseCat,base);
 
-sample_name = sheet2samplename(sheet_name);
+samplename = sheet2samplename(sheetnames);
 
 disp("Samples to be analysed: ")
-disp(sample_name')
+disp(samplename')
 
 end
