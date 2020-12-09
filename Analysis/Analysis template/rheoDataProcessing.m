@@ -1,14 +1,16 @@
 clc; clear; close all;    
 warning off
 
-% File directory
-base = pwd;
-base = [convertCharsToStrings(erase(pwd,[ filesep 'Analysis' filesep 'Analysis template'])) + filesep + 'Measurement files' + filesep];
-exp_date = datestr(datetime('today'),'yyyy_mm_dd');
+%% Inputs
+% Measurement file to be analysed
 file_name = "Demo_CCXXX_Thickness.xlsx";
 
 % Specify cutoff frequency
 cutoffFreq = 1;
+
+%%
+% File directory
+base = readFileDir();
 
 % Category of analysis for RMSE
 % rmseCat = "Aging";
@@ -29,6 +31,7 @@ freqAveragedRmse = rmseSpread(freqAveraged,sample_name,rmseCat);
 saveAllFigures
 
 % Saving frequency-averaged viscoelastic data as .xlsx
+exp_date = datestr(datetime('today'),'yyyy_mm_dd'); % Append today's date to output .xlsx file
 freqAveraged_FileName = exp_date + "_" + rmseCat + ".xlsx";
 writetable(freqAveraged,freqAveraged_FileName,'Sheet','Viscoelastic')
 writetable(freqAveragedRmse,freqAveraged_FileName,'Sheet','RMSE spread')
